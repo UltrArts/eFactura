@@ -1,0 +1,18 @@
+:root {
+    /* --ui-primary-color: #3498db;
+    --ui-secondary-color: #2ecc71;
+    --ui-background-color: #ffffff;
+    --ui-text-color: #000000; */
+
+    /* --ui-primary-color: #ffffff;
+    --ui-secondary-color: #1a1a1a;
+    --ui-background-color: #1a1a1a;
+    --ui-text-color: #ffffff; */
+
+    --ui-primary-color: #007bff;
+        --ui-secondary-color: #0056b3;
+        --ui-background-color: #f8f9fa;
+        --ui-text-color: #212529;
+        --ui-surface-color: #e6e9ed;
+  }
+  

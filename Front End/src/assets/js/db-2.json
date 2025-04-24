@@ -1,0 +1,224 @@
+{
+  "themes": [
+    {
+      "id": 1,
+      "name": "Ocean Breeze",
+      "colors": {
+        "--ui-primary-color": "#007bff",
+        "--ui-secondary-color": "#0056b3",
+        "--ui-background-color": "#f8f9fa",
+        "--ui-text-color": "#212529",
+        "--ui-surface-color": "#e6e9ed"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Emerald Touch",
+      "colors": {
+        "--ui-primary-color": "#28a745",
+        "--ui-secondary-color": "#1e7e34",
+        "--ui-background-color": "#ffffff",
+        "--ui-text-color": "#333333",
+        "--ui-surface-color": "#efefef"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Concrete Vision",
+      "colors": {
+        "--ui-primary-color": "#6c757d",
+        "--ui-secondary-color": "#343a40",
+        "--ui-background-color": "#f4f4f4",
+        "--ui-text-color": "#212529",
+        "--ui-surface-color": "#e4e4e4"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Purple Majesty",
+      "colors": {
+        "--ui-primary-color": "#6f42c1",
+        "--ui-secondary-color": "#563d7c",
+        "--ui-background-color": "#f9f9f9",
+        "--ui-text-color": "#2c2c2c",
+        "--ui-surface-color": "#e9e9e9"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Noir Elegance",
+      "colors": {
+        "--ui-primary-color": "#000000",
+        "--ui-secondary-color": "#4a4a4a",
+        "--ui-background-color": "#ffffff",
+        "--ui-text-color": "#111111",
+        "--ui-surface-color": "#efefef"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Royal Navy",
+      "colors": {
+        "--ui-primary-color": "#1b1f3b",
+        "--ui-secondary-color": "#d4af37",
+        "--ui-background-color": "#f8f8f8",
+        "--ui-text-color": "#1b1f3b",
+        "--ui-surface-color": "#e8e8e8"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Soft Minimal",
+      "colors": {
+        "--ui-primary-color": "#3a3a3a",
+        "--ui-secondary-color": "#e0e0e0",
+        "--ui-background-color": "#ffffff",
+        "--ui-text-color": "#1e1e1e",
+        "--ui-surface-color": "#efefef"
+      }
+    },
+    {
+      "id": 8,
+      "name": "Aqua Harmony",
+      "colors": {
+        "--ui-primary-color": "#00bcd4",
+        "--ui-secondary-color": "#4caf50",
+        "--ui-background-color": "#ffffff",
+        "--ui-text-color": "#263238",
+        "--ui-surface-color": "#efefef"
+      }
+    },
+    {
+      "id": 9,
+      "name": "Sunset Drive",
+      "colors": {
+        "--ui-primary-color": "#ff5722",
+        "--ui-secondary-color": "#607d8b",
+        "--ui-background-color": "#fefefe",
+        "--ui-text-color": "#212121",
+        "--ui-surface-color": "#eeeeee"
+      }
+    },
+    {
+      "id": 10,
+      "name": "Skyfall",
+      "colors": {
+        "--ui-primary-color": "#5dade2",
+        "--ui-secondary-color": "#2e86c1",
+        "--ui-background-color": "#f4f6f7",
+        "--ui-text-color": "#1b2631",
+        "--ui-surface-color": "#e2e7ea"
+      }
+    },
+    {
+      "id": 11,
+      "name": "Nature Bloom",
+      "colors": {
+        "--ui-primary-color": "#2ecc71",
+        "--ui-secondary-color": "#27ae60",
+        "--ui-background-color": "#ecf0f1",
+        "--ui-text-color": "#2d3436",
+        "--ui-surface-color": "#dae2e4"
+      }
+    },
+    {
+      "id": 12,
+      "name": "Velvet Grape",
+      "colors": {
+        "--ui-primary-color": "#8e44ad",
+        "--ui-secondary-color": "#6c3483",
+        "--ui-background-color": "#fdfbff",
+        "--ui-text-color": "#2c2c2c",
+        "--ui-surface-color": "#eddcff"
+      }
+    },
+    {
+      "id": 13,
+      "name": "Sandstone Glow",
+      "colors": {
+        "--ui-primary-color": "#d2b48c",
+        "--ui-secondary-color": "#6e5849",
+        "--ui-background-color": "#fffaf0",
+        "--ui-text-color": "#3e3e3e",
+        "--ui-surface-color": "#ffefd1"
+      }
+    },
+    {
+      "id": 14,
+      "name": "Urban Steel",
+      "colors": {
+        "--ui-primary-color": "#2c3e50",
+        "--ui-secondary-color": "#95a5a6",
+        "--ui-background-color": "#ecf0f1",
+        "--ui-text-color": "#2c3e50",
+        "--ui-surface-color": "#dae2e4"
+      }
+    },
+    {
+      "id": 15,
+      "name": "Royal Vibe",
+      "colors": {
+        "--ui-primary-color": "#4169e1",
+        "--ui-secondary-color": "#27408b",
+        "--ui-background-color": "#ffffff",
+        "--ui-text-color": "#101010",
+        "--ui-surface-color": "#efefef"
+      }
+    },
+    {
+      "id": 16,
+      "name": "Pink Blossom",
+      "colors": {
+        "--ui-primary-color": "#e91e63",
+        "--ui-secondary-color": "#c2185b",
+        "--ui-background-color": "#fefefe",
+        "--ui-text-color": "#212121",
+        "--ui-surface-color": "#eeeeee"
+      }
+    },
+    {
+      "id": 17,
+      "name": "Tech Gray",
+      "colors": {
+        "--ui-primary-color": "#607d8b",
+        "--ui-secondary-color": "#37474f",
+        "--ui-background-color": "#eceff1",
+        "--ui-text-color": "#263238",
+        "--ui-surface-color": "#dae0e4"
+      }
+    },
+    {
+      "id": 18,
+      "name": "Olive Essence",
+      "colors": {
+        "--ui-primary-color": "#556b2f",
+        "--ui-secondary-color": "#8fbc8f",
+        "--ui-background-color": "#f4f4f4",
+        "--ui-text-color": "#2c2c2c",
+        "--ui-surface-color": "#e4e4e4"
+      }
+    },
+    {
+      "id": 19,
+      "name": "Midnight Ice",
+      "colors": {
+        "--ui-primary-color": "#ffffff",
+        "--ui-secondary-color": "#1a1a1a",
+        "--ui-background-color": "#1a1a1a",
+        "--ui-text-color": "#ffffff",
+        "--ui-surface-color": "#292929"
+      }
+    },
+    {
+      "id": 20,
+      "name": "Flat Vision",
+      "colors": {
+        "--ui-primary-color": "#34495e",
+        "--ui-secondary-color": "#1abc9c",
+        "--ui-background-color": "#ecf0f1",
+        "--ui-text-color": "#2c3e50",
+        "--ui-surface-color": "#dae2e4"
+      }
+    }
+  ]
+}
