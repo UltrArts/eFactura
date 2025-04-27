@@ -43,7 +43,6 @@
 
 
 <style>
-  @import '@/assets/css/variables.css';
 
   button {
     margin-top: 20px;

@@ -1,383 +1,224 @@
 {
-    "themes": [
-      {
-        "id": 1,
-        "name": "Ocean Breeze",
-        "colors": {
-          "--ui-primary-color": "#007bff",
-          "--ui-secondary-color": "#0056b3",
-          "--ui-background-color": "#f8f9fa",
-          "--ui-text-color": "#212529"
-        }
-      },
-      {
-        "id": 2,
-        "name": "Emerald Touch",
-        "colors": {
-          "--ui-primary-color": "#28a745",
-          "--ui-secondary-color": "#1e7e34",
-          "--ui-background-color": "#ffffff",
-          "--ui-text-color": "#333333"
-        }
-      },
-      {
-        "id": 3,
-        "name": "Concrete Vision",
-        "colors": {
-          "--ui-primary-color": "#6c757d",
-          "--ui-secondary-color": "#343a40",
-          "--ui-background-color": "#f4f4f4",
-          "--ui-text-color": "#212529"
-        }
-      },
-      {
-        "id": 4,
-        "name": "Purple Majesty",
-        "colors": {
-          "--ui-primary-color": "#6f42c1",
-          "--ui-secondary-color": "#563d7c",
-          "--ui-background-color": "#f9f9f9",
-          "--ui-text-color": "#2c2c2c"
-        }
-      },
-      {
-        "id": 5,
-        "name": "Noir Elegance",
-        "colors": {
-          "--ui-primary-color": "#000000",
-          "--ui-secondary-color": "#4a4a4a",
-          "--ui-background-color": "#ffffff",
-          "--ui-text-color": "#111111"
-        }
-      },
-      {
-        "id": 6,
-        "name": "Royal Navy",
-        "colors": {
-          "--ui-primary-color": "#1b1f3b",
-          "--ui-secondary-color": "#d4af37",
-          "--ui-background-color": "#f8f8f8",
-          "--ui-text-color": "#1b1f3b"
-        }
-      },
-      {
-        "id": 7,
-        "name": "Soft Minimal",
-        "colors": {
-          "--ui-primary-color": "#3a3a3a",
-          "--ui-secondary-color": "#e0e0e0",
-          "--ui-background-color": "#ffffff",
-          "--ui-text-color": "#1e1e1e"
-        }
-      },
-      {
-        "id": 8,
-        "name": "Aqua Harmony",
-        "colors": {
-          "--ui-primary-color": "#00bcd4",
-          "--ui-secondary-color": "#4caf50",
-          "--ui-background-color": "#ffffff",
-          "--ui-text-color": "#263238"
-        }
-      },
-      {
-        "id": 9,
-        "name": "Sunset Drive",
-        "colors": {
-          "--ui-primary-color": "#ff5722",
-          "--ui-secondary-color": "#607d8b",
-          "--ui-background-color": "#fefefe",
-          "--ui-text-color": "#212121"
-        }
-      },
-      {
-        "id": 10,
-        "name": "Skyfall",
-        "colors": {
-          "--ui-primary-color": "#5dade2",
-          "--ui-secondary-color": "#2e86c1",
-          "--ui-background-color": "#f4f6f7",
-          "--ui-text-color": "#1b2631"
-        }
-      },
-      {
-        "id": 11,
-        "name": "Nature Bloom",
-        "colors": {
-          "--ui-primary-color": "#2ecc71",
-          "--ui-secondary-color": "#27ae60",
-          "--ui-background-color": "#ecf0f1",
-          "--ui-text-color": "#2d3436"
-        }
-      },
-      {
-        "id": 12,
-        "name": "Velvet Grape",
-        "colors": {
-          "--ui-primary-color": "#8e44ad",
-          "--ui-secondary-color": "#6c3483",
-          "--ui-background-color": "#fdfbff",
-          "--ui-text-color": "#2c2c2c"
-        }
-      },
-      {
-        "id": 13,
-        "name": "Sandstone Glow",
-        "colors": {
-          "--ui-primary-color": "#d2b48c",
-          "--ui-secondary-color": "#6e5849",
-          "--ui-background-color": "#fffaf0",
-          "--ui-text-color": "#3e3e3e"
-        }
-      },
-      {
-        "id": 14,
-        "name": "Urban Steel",
-        "colors": {
-          "--ui-primary-color": "#2c3e50",
-          "--ui-secondary-color": "#95a5a6",
-          "--ui-background-color": "#ecf0f1",
-          "--ui-text-color": "#2c3e50"
-        }
-      },
-      {
-        "id": 15,
-        "name": "Royal Vibe",
-        "colors": {
-          "--ui-primary-color": "#4169e1",
-          "--ui-secondary-color": "#27408b",
-          "--ui-background-color": "#ffffff",
-          "--ui-text-color": "#101010"
-        }
-      },
-      {
-        "id": 16,
-        "name": "Pink Blossom",
-        "colors": {
-          "--ui-primary-color": "#e91e63",
-          "--ui-secondary-color": "#c2185b",
-          "--ui-background-color": "#fefefe",
-          "--ui-text-color": "#212121"
-        }
-      },
-      {
-        "id": 17,
-        "name": "Tech Gray",
-        "colors": {
-          "--ui-primary-color": "#607d8b",
-          "--ui-secondary-color": "#37474f",
-          "--ui-background-color": "#eceff1",
-          "--ui-text-color": "#263238"
-        }
-      },
-      {
-        "id": 18,
-        "name": "Olive Essence",
-        "colors": {
-          "--ui-primary-color": "#556b2f",
-          "--ui-secondary-color": "#8fbc8f",
-          "--ui-background-color": "#f4f4f4",
-          "--ui-text-color": "#2c2c2c"
-        }
-      },
-      {
-        "id": 19,
-        "name": "Midnight Ice",
-        "colors": {
-          "--ui-primary-color": "#ffffff",
-          "--ui-secondary-color": "#1a1a1a",
-          "--ui-background-color": "#1a1a1a",
-          "--ui-text-color": "#ffffff"
-        }
-      },
-      {
-        "id": 20,
-        "name": "Flat Vision",
-        "colors": {
-          "--ui-primary-color": "#34495e",
-          "--ui-secondary-color": "#1abc9c",
-          "--ui-background-color": "#ecf0f1",
-          "--ui-text-color": "#2c3e50"
-        }
+  "themes": [
+    {
+      "id": 1,
+      "name": "Ocean Breeze",
+      "colors": {
+        "uiPrimary": "#007bff",
+        "uiSecondary": "#0056b3",
+        "uiBackground": "#f8f9fa",
+        "uiText": "#212529",
+        "uiSurface": "#e6e9ed"
       }
-    ],
-
-    "fontCategories": [
-      {
-        "category": "Moderna e Limpa",
-        "fonts": [
-          {
-            "id": 1,
-            "name": "Roboto",
-            "primaryFont": "'Roboto', sans-serif",
-            "secondaryFont": "'Open Sans', sans-serif"
-          },
-          {
-            "id": 2,
-            "name": "Open Sans",
-            "primaryFont": "'Open Sans', sans-serif",
-            "secondaryFont": "'Lato', sans-serif"
-          },
-          {
-            "id": 3,
-            "name": "Inter",
-            "primaryFont": "'Inter', sans-serif",
-            "secondaryFont": "'Roboto', sans-serif"
-          },
-          {
-            "id": 4,
-            "name": "Lato",
-            "primaryFont": "'Lato', sans-serif",
-            "secondaryFont": "'Montserrat', sans-serif"
-          },
-          {
-            "id": 5,
-            "name": "Montserrat",
-            "primaryFont": "'Montserrat', sans-serif",
-            "secondaryFont": "'Open Sans', sans-serif"
-          }
-        ]
-      },
-      {
-        "category": "Clássica e Elegante",
-        "fonts": [
-          {
-            "id": 6,
-            "name": "Playfair Display",
-            "primaryFont": "'Playfair Display', serif",
-            "secondaryFont": "'Lora', serif"
-          },
-          {
-            "id": 7,
-            "name": "Lora",
-            "primaryFont": "'Lora', serif",
-            "secondaryFont": "'Merriweather', serif"
-          },
-          {
-            "id": 8,
-            "name": "Merriweather",
-            "primaryFont": "'Merriweather', serif",
-            "secondaryFont": "'Libre Baskerville', serif"
-          },
-          {
-            "id": 9,
-            "name": "Libre Baskerville",
-            "primaryFont": "'Libre Baskerville', serif",
-            "secondaryFont": "'Georgia', serif"
-          },
-          {
-            "id": 10,
-            "name": "Crimson Text",
-            "primaryFont": "'Crimson Text', serif",
-            "secondaryFont": "'Lora', serif"
-          }
-        ]
-      },
-      {
-        "category": "Técnica e Precisa",
-        "fonts": [
-          {
-            "id": 11,
-            "name": "Fira Code",
-            "primaryFont": "'Fira Code', monospace",
-            "secondaryFont": "'Courier New', monospace"
-          },
-          {
-            "id": 12,
-            "name": "Source Code Pro",
-            "primaryFont": "'Source Code Pro', monospace",
-            "secondaryFont": "'JetBrains Mono', monospace"
-          },
-          {
-            "id": 13,
-            "name": "JetBrains Mono",
-            "primaryFont": "'JetBrains Mono', monospace",
-            "secondaryFont": "'IBM Plex Mono', monospace"
-          },
-          {
-            "id": 14,
-            "name": "Courier New",
-            "primaryFont": "'Courier New', monospace",
-            "secondaryFont": "'Fira Code', monospace"
-          },
-          {
-            "id": 15,
-            "name": "IBM Plex Mono",
-            "primaryFont": "'IBM Plex Mono', monospace",
-            "secondaryFont": "'Source Code Pro', monospace"
-          }
-        ]
-      },
-      {
-        "category": "Criativa e Estilosa",
-        "fonts": [
-          {
-            "id": 16,
-            "name": "Raleway",
-            "primaryFont": "'Raleway', sans-serif",
-            "secondaryFont": "'Fredoka', sans-serif"
-          },
-          {
-            "id": 17,
-            "name": "Abril Fatface",
-            "primaryFont": "'Abril Fatface', cursive",
-            "secondaryFont": "'Pacifico', cursive"
-          },
-          {
-            "id": 18,
-            "name": "Bebas Neue",
-            "primaryFont": "'Bebas Neue', sans-serif",
-            "secondaryFont": "'Oswald', sans-serif"
-          },
-          {
-            "id": 19,
-            "name": "Pacifico",
-            "primaryFont": "'Pacifico', cursive",
-            "secondaryFont": "'Abril Fatface', cursive"
-          },
-          {
-            "id": 20,
-            "name": "Fredoka",
-            "primaryFont": "'Fredoka', sans-serif",
-            "secondaryFont": "'Raleway', sans-serif"
-          }
-        ]
-      },
-      {
-        "category": "Fácil de Ler",
-        "fonts": [
-          {
-            "id": 21,
-            "name": "Noto Sans",
-            "primaryFont": "'Noto Sans', sans-serif",
-            "secondaryFont": "'Segoe UI', sans-serif"
-          },
-          {
-            "id": 22,
-            "name": "Segoe UI",
-            "primaryFont": "'Segoe UI', sans-serif",
-            "secondaryFont": "'Ubuntu', sans-serif"
-          },
-          {
-            "id": 23,
-            "name": "Verdana",
-            "primaryFont": "'Verdana', sans-serif",
-            "secondaryFont": "'Noto Sans', sans-serif"
-          },
-          {
-            "id": 24,
-            "name": "Ubuntu",
-            "primaryFont": "'Ubuntu', sans-serif",
-            "secondaryFont": "'Assistant', sans-serif"
-          },
-          {
-            "id": 25,
-            "name": "Assistant",
-            "primaryFont": "'Assistant', sans-serif",
-            "secondaryFont": "'Verdana', sans-serif"
-          }
-        ]
+    },
+    {
+      "id": 2,
+      "name": "Emerald Touch",
+      "colors": {
+        "uiPrimary": "#28a745",
+        "uiSecondary": "#1e7e34",
+        "uiBackground": "#ffffff",
+        "uiText": "#333333",
+        "uiSurface": "#efefef"
       }
-    ]
-    
+    },
+    {
+      "id": 3,
+      "name": "Concrete Vision",
+      "colors": {
+        "uiPrimary": "#6c757d",
+        "uiSecondary": "#343a40",
+        "uiBackground": "#f4f4f4",
+        "uiText": "#212529",
+        "uiSurface": "#e4e4e4"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Purple Majesty",
+      "colors": {
+        "uiPrimary": "#6f42c1",
+        "uiSecondary": "#563d7c",
+        "uiBackground": "#f9f9f9",
+        "uiText": "#2c2c2c",
+        "uiSurface": "#e9e9e9"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Noir Elegance",
+      "colors": {
+        "uiPrimary": "#000000",
+        "uiSecondary": "#4a4a4a",
+        "uiBackground": "#ffffff",
+        "uiText": "#111111",
+        "uiSurface": "#efefef"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Royal Navy",
+      "colors": {
+        "uiPrimary": "#1b1f3b",
+        "uiSecondary": "#d4af37",
+        "uiBackground": "#f8f8f8",
+        "uiText": "#1b1f3b",
+        "uiSurface": "#e8e8e8"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Soft Minimal",
+      "colors": {
+        "uiPrimary": "#3a3a3a",
+        "uiSecondary": "#e0e0e0",
+        "uiBackground": "#ffffff",
+        "uiText": "#1e1e1e",
+        "uiSurface": "#efefef"
+      }
+    },
+    {
+      "id": 8,
+      "name": "Aqua Harmony",
+      "colors": {
+        "uiPrimary": "#00bcd4",
+        "uiSecondary": "#4caf50",
+        "uiBackground": "#ffffff",
+        "uiText": "#263238",
+        "uiSurface": "#efefef"
+      }
+    },
+    {
+      "id": 9,
+      "name": "Sunset Drive",
+      "colors": {
+        "uiPrimary": "#ff5722",
+        "uiSecondary": "#607d8b",
+        "uiBackground": "#fefefe",
+        "uiText": "#212121",
+        "uiSurface": "#eeeeee"
+      }
+    },
+    {
+      "id": 10,
+      "name": "Skyfall",
+      "colors": {
+        "uiPrimary": "#5dade2",
+        "uiSecondary": "#2e86c1",
+        "uiBackground": "#f4f6f7",
+        "uiText": "#1b2631",
+        "uiSurface": "#e2e7ea"
+      }
+    },
+    {
+      "id": 11,
+      "name": "Nature Bloom",
+      "colors": {
+        "uiPrimary": "#2ecc71",
+        "uiSecondary": "#27ae60",
+        "uiBackground": "#ecf0f1",
+        "uiText": "#2d3436",
+        "uiSurface": "#dae2e4"
+      }
+    },
+    {
+      "id": 12,
+      "name": "Velvet Grape",
+      "colors": {
+        "uiPrimary": "#8e44ad",
+        "uiSecondary": "#6c3483",
+        "uiBackground": "#fdfbff",
+        "uiText": "#2c2c2c",
+        "uiSurface": "#eddcff"
+      }
+    },
+    {
+      "id": 13,
+      "name": "Sandstone Glow",
+      "colors": {
+        "uiPrimary": "#d2b48c",
+        "uiSecondary": "#6e5849",
+        "uiBackground": "#fffaf0",
+        "uiText": "#3e3e3e",
+        "uiSurface": "#ffefd1"
+      }
+    },
+    {
+      "id": 14,
+      "name": "Urban Steel",
+      "colors": {
+        "uiPrimary": "#2c3e50",
+        "uiSecondary": "#95a5a6",
+        "uiBackground": "#ecf0f1",
+        "uiText": "#2c3e50",
+        "uiSurface": "#dae2e4"
+      }
+    },
+    {
+      "id": 15,
+      "name": "Royal Vibe",
+      "colors": {
+        "uiPrimary": "#4169e1",
+        "uiSecondary": "#27408b",
+        "uiBackground": "#ffffff",
+        "uiText": "#101010",
+        "uiSurface": "#efefef"
+      }
+    },
+    {
+      "id": 16,
+      "name": "Pink Blossom",
+      "colors": {
+        "uiPrimary": "#e91e63",
+        "uiSecondary": "#c2185b",
+        "uiBackground": "#fefefe",
+        "uiText": "#212121",
+        "uiSurface": "#eeeeee"
+      }
+    },
+    {
+      "id": 17,
+      "name": "Tech Gray",
+      "colors": {
+        "uiPrimary": "#607d8b",
+        "uiSecondary": "#37474f",
+        "uiBackground": "#eceff1",
+        "uiText": "#263238",
+        "uiSurface": "#dae0e4"
+      }
+    },
+    {
+      "id": 18,
+      "name": "Olive Essence",
+      "colors": {
+        "uiPrimary": "#556b2f",
+        "uiSecondary": "#8fbc8f",
+        "uiBackground": "#f4f4f4",
+        "uiText": "#2c2c2c",
+        "uiSurface": "#e4e4e4"
+      }
+    },
+    {
+      "id": 19,
+      "name": "Midnight Ice",
+      "colors": {
+        "uiPrimary": "#ffffff",
+        "uiSecondary": "#1a1a1a",
+        "uiBackground": "#1a1a1a",
+        "uiText": "#ffffff",
+        "uiSurface": "#292929"
+      }
+    },
+    {
+      "id": 20,
+      "name": "Flat Vision",
+      "colors": {
+        "uiPrimary": "#34495e",
+        "uiSecondary": "#1abc9c",
+        "uiBackground": "#ecf0f1",
+        "uiText": "#2c3e50",
+        "uiSurface": "#dae2e4"
+      }
+    }
+  ]
 }

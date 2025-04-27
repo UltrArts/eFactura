@@ -198,8 +198,8 @@
 
 </script>
 
-<style scoped>
-
+<style >
+    @import '@/assets/css/variables.css';
 
     /* content editable */
 
