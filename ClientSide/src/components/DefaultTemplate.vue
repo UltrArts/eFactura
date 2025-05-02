@@ -2,11 +2,11 @@
   <div class="body">
     <header>
       <h1>COTAÇÃO</h1>
-      <address contenteditable>
-        <p>{{ invoiceData.company.name }}</p>
-        <p>{{ invoiceData.company.address }}</p>
-        <p>{{ invoiceData.company.phone }}</p>
-        <p>{{ invoiceData.company.website }}</p>
+      <address>
+        <p contenteditable>{{ invoiceData.company.name }}</p>
+        <p contenteditable>{{ invoiceData.company.address }}</p>
+        <p contenteditable>{{ invoiceData.company.phone }}</p>
+        <p contenteditable>{{ invoiceData.company.website }}</p>
       </address>
       <span>
         <img :src="invoiceData.logo" style="max-width: 100px; margin-right: 50px;" />
@@ -40,8 +40,8 @@
             />
           </td> -->
 
-          <td style="cursor: pointer; position: relative;">
-            <Datepicker
+          <td class="date_picker" style="cursor: pointer; position: relative;">
+            <Datepicker id="date_picker"
              style="cursor: pointer;"
               :model-value="now"
               @update:model-value="handleDateChange"
@@ -73,8 +73,8 @@
               <a @click="removeItem(index)" class="cut">-</a> 
               <span contenteditable>{{ item.name }}</span>
             </td>
-            <td contenteditable> 
-              <span>{{ item.description }} </span>
+            <td> 
+              <span contenteditable>{{ item.description }} </span>
             </td>
             <td>
               <span>${{ invoiceData.currency }} </span>  
@@ -112,8 +112,8 @@
     </article>
     <aside>
       <h1>Notas Adicionais</h1>
-      <div contenteditable>
-        <p>{{ invoiceData.notes }}</p>
+      <div>
+        <p contenteditable>{{ invoiceData.notes }}</p>
       </div>
     </aside>
     <div id="floating-items">
@@ -122,17 +122,22 @@
       <button class="floating" @click="downloadImage">Baixar Imagem</button>
       <button class="floating" @click="toggleTheme" id="themesBtn">Mudar Tema</button>
     </div>
+
+    <footer class="footer-hidden">
+      <small>Processado por computador {{formattedDateTime}} | @eFacturas</small>
+    </footer>
     <!-- <expand-btn/> -->
   </div>
 </template>
 
 
 <script setup>
-  import { ref, onMounted, getCurrentInstance  } from 'vue'
+  import { ref, onMounted, onBeforeUnmount, getCurrentInstance  } from 'vue'
   import Datepicker from 'vue3-datepicker'
   import { useInvoiceStore } from '@/stores/useInvoiceStore'
   import { useThemeStore } from '@/stores/useThemeStore'
   import pt from 'date-fns/locale/pt'
+  import pt_br from 'date-fns/locale/pt-BR'
   import { storeToRefs } from 'pinia'
   import expandBtn from './include/expandBtn.vue'
 
@@ -151,8 +156,6 @@
   const hiddenDate = ref(null)
 
   const {
-    startClock,
-    stopClock,
     addItem,
     removeItem,
     updateItemTotal,
@@ -164,6 +167,9 @@
     updateDateFromInput,
     formattedTime,
     updateTotal,
+    startClock,
+    stopClock,
+    formattedDateTime,
   } = invoice
 
     
@@ -173,7 +179,6 @@
 
   
   function onDateSelected(event) {
-    console.log('Data escolhida:', event.target.value)
     updateDateFromInput(event.target.value)
   }
 
@@ -188,10 +193,15 @@
     // aplica automaticamente o tema inicial para este template
     const instance = getCurrentInstance();
     const templateName = instance?.type?.name || 'DefaultTemplate';
-    console.log('Template name:', templateName);
     theme.applyInitialTheme(templateName);
+    invoice.startClock()
+
     // opcional: carregar do localStorage se desejar persistência
     // theme.loadStoredTheme()
+  })
+
+  onBeforeUnmount(() => {
+    invoice.stopClock()
   })
 
 
@@ -208,8 +218,20 @@
     *[contenteditable] { cursor: pointer; }
 
     *[contenteditable]:hover, *[contenteditable]:focus, td:hover *[contenteditable], td:focus *[contenteditable], img.hover { 
-        background: #DEF;
-        box-shadow: 0 0 1em 0.5em #DEF; 
+        /* background: #DEF; */
+        /* box-shadow: 0 0 1em 0.5em #DEF;  */
+        background: var(--ui-secondary);
+        color: var(--ui-secondary-text) !important;
+        box-shadow: 0 0 1em 0.5em  var(--ui-secondary); 
+    }
+    *{
+      color: var(--ui-text);
+    }
+
+    #date_picker{
+      background: var(--ui-background);
+      border:  var(--ui-background);
+      width: 95%;
     }
 
     .body { background: var(--ui-background); border-radius: 1px; box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5); }
@@ -243,7 +265,7 @@
     header:after { clear: both; content: ""; display: table; }
 
     header h1 {
-        background: var(--ui-primary); border-radius: 0.25em; color: var(--ui-secondary); margin: 0 0 1em; padding: 0.5em 0; }
+        background: var(--ui-primary); border-radius: 0.25em; color: var(--ui-primary-text); margin: 0 0 1em; padding: 0.5em 0; }
     header address { float: left; font-size: 90%; font-style: normal; line-height: 1.25; margin: 0 1em 1em 0; }
     header address p { margin: 0 0 0.25em; }
     header span, header img { display: block; float: right; }
@@ -332,6 +354,26 @@
         position: fixed;
         bottom: 1rem;
         right: 35.8%;
+    }
+
+    footer {
+      /* background: red; */
+      font-family: "Roboto Mono", monospace;
+      font-optical-sizing: auto;
+      font-size: 80%;
+      font-style: normal;
+      font-weight: 300;
+      text-align: center;
+      position: relative;
+      width: 100%;
+      margin-top: 2em;
+    }
+    footer small{
+      margin-top: -10em;
+    }
+
+    .footer-hidden{
+      /* display: none; */
     }
 
     @media print {

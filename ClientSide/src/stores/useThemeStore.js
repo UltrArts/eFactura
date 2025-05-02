@@ -11,7 +11,8 @@ export const useThemeStore = defineStore('theme', {
       DefaultTemplate: {
         colors: {
           uiPrimary:   '#000000',
-          uiSecondary: '#FFFFFF',
+          uiPrimaryText: '#ffff',
+          uiSecondary: '#DEF',
           uiBackground: '#FFFFFF',
           uiSurface:   '#EEEEEE',
           uiText:      '#333333'
@@ -43,7 +44,6 @@ export const useThemeStore = defineStore('theme', {
     async fetchThemes() {
       const res = await axios.get('http://localhost:3001/themes')
       this.themes = res.data
-      console.log("Temas retornados: ", this.themes)
     },
 
     applyTheme(theme) {
@@ -57,12 +57,13 @@ export const useThemeStore = defineStore('theme', {
       }
 
       document.documentElement.style.setProperty('--ui-primary',    colors.uiPrimary)
+      document.documentElement.style.setProperty('--ui-primary-text',    colors.uiPrimaryText)
       document.documentElement.style.setProperty('--ui-secondary',  colors.uiSecondary)
+      document.documentElement.style.setProperty('--ui-secondary-text',  colors.uiSecondaryText)
       document.documentElement.style.setProperty('--ui-background', colors.uiBackground)
       document.documentElement.style.setProperty('--ui-surface',    colors.uiSurface)
       document.documentElement.style.setProperty('--ui-text',       colors.uiText)
 
-      console.log(`Tema aplicado: Primária: ${colors.uiPrimary}`)
     },
 
     // aplica o tema inicial configurado no store
@@ -75,17 +76,22 @@ export const useThemeStore = defineStore('theme', {
       this.applyTheme(theme)
     },
 
-    toggleTheme() {
+    toggleTheme(index = null) {
       if (!this.themes.length) {
         console.warn('Nenhum tema carregado ainda. Buscando...')
-        return this.fetchThemes().then(() => this.toggleTheme())
+        return this.fetchThemes().then(() => this.toggleTheme(index))
       }
-
-      const idx = this.themes.findIndex(t => t.id === this.currentTheme?.id)
-      const next = this.themes[(idx + 1) % this.themes.length]
-
-      console.log('Próximo tema:', next)
-      this.applyTheme(next)
+    
+      if (index !== null && this.themes[index]) {
+        // Se passar índice válido, aplica diretamente
+        this.applyTheme(this.themes[index])
+      } else {
+        // Senão, alterna para o próximo
+        const currentIdx = this.themes.findIndex(t => t.id === this.currentTheme?.id)
+        const next = this.themes[(currentIdx + 1) % this.themes.length]
+        this.applyTheme(next)
+      }
     }
+    
   }
 })

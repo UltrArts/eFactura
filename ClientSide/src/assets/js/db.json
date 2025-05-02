@@ -5,7 +5,9 @@
       "name": "Ocean Breeze",
       "colors": {
         "uiPrimary": "#007bff",
+        "uiPrimaryText": "#ffffff",
         "uiSecondary": "#0056b3",
+        "uiSecondaryText": "#ffffff",
         "uiBackground": "#f8f9fa",
         "uiText": "#212529",
         "uiSurface": "#e6e9ed"
@@ -16,7 +18,9 @@
       "name": "Emerald Touch",
       "colors": {
         "uiPrimary": "#28a745",
+        "uiPrimaryText": "#ffffff",
         "uiSecondary": "#1e7e34",
+        "uiSecondaryText": "#ffffff",
         "uiBackground": "#ffffff",
         "uiText": "#333333",
         "uiSurface": "#efefef"
@@ -27,7 +31,9 @@
       "name": "Concrete Vision",
       "colors": {
         "uiPrimary": "#6c757d",
+        "uiPrimaryText": "#ffffff",
         "uiSecondary": "#343a40",
+        "uiSecondaryText": "#ffffff",
         "uiBackground": "#f4f4f4",
         "uiText": "#212529",
         "uiSurface": "#e4e4e4"
@@ -38,7 +44,9 @@
       "name": "Purple Majesty",
       "colors": {
         "uiPrimary": "#6f42c1",
+        "uiPrimaryText": "#ffffff",
         "uiSecondary": "#563d7c",
+        "uiSecondaryText": "#ffffff",
         "uiBackground": "#f9f9f9",
         "uiText": "#2c2c2c",
         "uiSurface": "#e9e9e9"
@@ -49,7 +57,9 @@
       "name": "Noir Elegance",
       "colors": {
         "uiPrimary": "#000000",
+        "uiPrimaryText": "#ffffff",
         "uiSecondary": "#4a4a4a",
+        "uiSecondaryText": "#ffffff",
         "uiBackground": "#ffffff",
         "uiText": "#111111",
         "uiSurface": "#efefef"
@@ -60,7 +70,9 @@
       "name": "Royal Navy",
       "colors": {
         "uiPrimary": "#1b1f3b",
+        "uiPrimaryText": "#ffffff",
         "uiSecondary": "#d4af37",
+        "uiSecondaryText": "#000000",
         "uiBackground": "#f8f8f8",
         "uiText": "#1b1f3b",
         "uiSurface": "#e8e8e8"
@@ -71,7 +83,9 @@
       "name": "Soft Minimal",
       "colors": {
         "uiPrimary": "#3a3a3a",
+        "uiPrimaryText": "#ffffff",
         "uiSecondary": "#e0e0e0",
+        "uiSecondaryText": "#000000",
         "uiBackground": "#ffffff",
         "uiText": "#1e1e1e",
         "uiSurface": "#efefef"
@@ -82,7 +96,9 @@
       "name": "Aqua Harmony",
       "colors": {
         "uiPrimary": "#00bcd4",
+        "uiPrimaryText": "#ffffff",
         "uiSecondary": "#4caf50",
+        "uiSecondaryText": "#ffffff",
         "uiBackground": "#ffffff",
         "uiText": "#263238",
         "uiSurface": "#efefef"
@@ -93,7 +109,9 @@
       "name": "Sunset Drive",
       "colors": {
         "uiPrimary": "#ff5722",
+        "uiPrimaryText": "#ffffff",
         "uiSecondary": "#607d8b",
+        "uiSecondaryText": "#ffffff",
         "uiBackground": "#fefefe",
         "uiText": "#212121",
         "uiSurface": "#eeeeee"
@@ -104,7 +122,9 @@
       "name": "Skyfall",
       "colors": {
         "uiPrimary": "#5dade2",
+        "uiPrimaryText": "#ffffff",
         "uiSecondary": "#2e86c1",
+        "uiSecondaryText": "#ffffff",
         "uiBackground": "#f4f6f7",
         "uiText": "#1b2631",
         "uiSurface": "#e2e7ea"
@@ -115,7 +135,9 @@
       "name": "Nature Bloom",
       "colors": {
         "uiPrimary": "#2ecc71",
+        "uiPrimaryText": "#ffffff",
         "uiSecondary": "#27ae60",
+        "uiSecondaryText": "#ffffff",
         "uiBackground": "#ecf0f1",
         "uiText": "#2d3436",
         "uiSurface": "#dae2e4"
@@ -126,7 +148,9 @@
       "name": "Velvet Grape",
       "colors": {
         "uiPrimary": "#8e44ad",
+        "uiPrimaryText": "#ffffff",
         "uiSecondary": "#6c3483",
+        "uiSecondaryText": "#ffffff",
         "uiBackground": "#fdfbff",
         "uiText": "#2c2c2c",
         "uiSurface": "#eddcff"
@@ -137,7 +161,9 @@
       "name": "Sandstone Glow",
       "colors": {
         "uiPrimary": "#d2b48c",
+        "uiPrimaryText": "#000000",
         "uiSecondary": "#6e5849",
+        "uiSecondaryText": "#ffffff",
         "uiBackground": "#fffaf0",
         "uiText": "#3e3e3e",
         "uiSurface": "#ffefd1"
@@ -148,7 +174,9 @@
       "name": "Urban Steel",
       "colors": {
         "uiPrimary": "#2c3e50",
+        "uiPrimaryText": "#ffffff",
         "uiSecondary": "#95a5a6",
+        "uiSecondaryText": "#000000",
         "uiBackground": "#ecf0f1",
         "uiText": "#2c3e50",
         "uiSurface": "#dae2e4"
@@ -159,7 +187,9 @@
       "name": "Royal Vibe",
       "colors": {
         "uiPrimary": "#4169e1",
+        "uiPrimaryText": "#ffffff",
         "uiSecondary": "#27408b",
+        "uiSecondaryText": "#ffffff",
         "uiBackground": "#ffffff",
         "uiText": "#101010",
         "uiSurface": "#efefef"
@@ -170,7 +200,9 @@
       "name": "Pink Blossom",
       "colors": {
         "uiPrimary": "#e91e63",
+        "uiPrimaryText": "#ffffff",
         "uiSecondary": "#c2185b",
+        "uiSecondaryText": "#ffffff",
         "uiBackground": "#fefefe",
         "uiText": "#212121",
         "uiSurface": "#eeeeee"
@@ -181,7 +213,9 @@
       "name": "Tech Gray",
       "colors": {
         "uiPrimary": "#607d8b",
+        "uiPrimaryText": "#ffffff",
         "uiSecondary": "#37474f",
+        "uiSecondaryText": "#ffffff",
         "uiBackground": "#eceff1",
         "uiText": "#263238",
         "uiSurface": "#dae0e4"
@@ -192,7 +226,9 @@
       "name": "Olive Essence",
       "colors": {
         "uiPrimary": "#556b2f",
+        "uiPrimaryText": "#ffffff",
         "uiSecondary": "#8fbc8f",
+        "uiSecondaryText": "#000000",
         "uiBackground": "#f4f4f4",
         "uiText": "#2c2c2c",
         "uiSurface": "#e4e4e4"
@@ -203,7 +239,9 @@
       "name": "Midnight Ice",
       "colors": {
         "uiPrimary": "#ffffff",
+        "uiPrimaryText": "#000000",
         "uiSecondary": "#1a1a1a",
+        "uiSecondaryText": "#ffffff",
         "uiBackground": "#1a1a1a",
         "uiText": "#ffffff",
         "uiSurface": "#292929"
@@ -214,7 +252,9 @@
       "name": "Flat Vision",
       "colors": {
         "uiPrimary": "#34495e",
+        "uiPrimaryText": "#ffffff",
         "uiSecondary": "#1abc9c",
+        "uiSecondaryText": "#000000",
         "uiBackground": "#ecf0f1",
         "uiText": "#2c3e50",
         "uiSurface": "#dae2e4"
