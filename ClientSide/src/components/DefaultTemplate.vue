@@ -1,5 +1,5 @@
 <template>
-  <div class="body">
+  <div class="body a4-page">
     <header>
       <h1>COTAÇÃO</h1>
       <address>
@@ -123,8 +123,8 @@
       <button class="floating" @click="toggleTheme" id="themesBtn">Mudar Tema</button>
     </div>
 
-    <footer class="footer-hidden">
-      <small>Processado por computador {{formattedDateTime}} | @eFacturas</small>
+    <footer  class="print-footer hidden">
+      <small>Processado por computador. {{formattedDateTime}} | @eFacturas</small>
     </footer>
     <!-- <expand-btn/> -->
   </div>
@@ -150,6 +150,7 @@
     balance, 
     change,  
     formattedDate,
+    formattedDateTime,
     now
   } = storeToRefs(invoice)
   // Métodos (funções — não precisam ser reativas)
@@ -169,7 +170,6 @@
     updateTotal,
     startClock,
     stopClock,
-    formattedDateTime,
   } = invoice
 
     
@@ -190,14 +190,10 @@
   }
 
   onMounted(() => {
-    // aplica automaticamente o tema inicial para este template
     const instance = getCurrentInstance();
     const templateName = instance?.type?.name || 'DefaultTemplate';
     theme.applyInitialTheme(templateName);
     invoice.startClock()
-
-    // opcional: carregar do localStorage se desejar persistência
-    // theme.loadStoredTheme()
   })
 
   onBeforeUnmount(() => {
@@ -235,7 +231,7 @@
     }
 
     .body { background: var(--ui-background); border-radius: 1px; box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5); }
-    .body { box-sizing: border-box; height: auto; margin: 0 auto; overflow: visible; padding: 0.3in 0.5in; width: 8.5in; }
+    .body { box-sizing: border-box; height: auto; margin: 0 auto; overflow: visible; padding: 0.3in 0.5in; width: 8.5in; min-height: 100vh}
 
 
     span[contenteditable] { display: inline-block; }
@@ -356,8 +352,8 @@
         right: 35.8%;
     }
 
-    footer {
-      /* background: red; */
+    /* footer {
+      background: red;
       font-family: "Roboto Mono", monospace;
       font-optical-sizing: auto;
       font-size: 80%;
@@ -367,14 +363,29 @@
       position: relative;
       width: 100%;
       margin-top: 2em;
+    } */
+
+    .print-footer {
+      width: 100%;
+      text-align: center;
+      font-size: 0.75rem;
+      color: inherit;
+      border-top: 1px dashed currentColor;
+      padding-top: 4px;
+      margin-top: 3em;
+      margin-bottom: 0;
+      position: relative;
     }
-    footer small{
-      margin-top: -10em;
+    .print-footer.hidden {
+      display: none;
     }
 
-    .footer-hidden{
-      /* display: none; */
-    }
+
+/* 
+    footer small{
+      margin-top: -10em;
+    } */
+
 
     @media print {
         * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
@@ -385,5 +396,10 @@
         #downloadBtn { display: none; }
     }
 
-    @page { margin: 0; }
+    /* @page { 
+      margin: 0; 
+      page-break-after: always;
+      position: relative;
+      min-height: 297mm;  
+    } */
 </style>

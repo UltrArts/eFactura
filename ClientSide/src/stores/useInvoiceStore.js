@@ -7,7 +7,6 @@ import * as XLSX from 'xlsx'
 import { saveAs } from 'file-saver'
 import html2canvas from 'html2canvas'
 
-
 export const useInvoiceStore = defineStore('invoice', () => {
   const now = ref(new Date())
   let timer = null
@@ -55,7 +54,6 @@ export const useInvoiceStore = defineStore('invoice', () => {
     return (invoiceData.paid - total.value) < 0 ? 0 : invoiceData.paid - total.value
   })
 
-
   const formattedDateTime = computed(() => {
     return now.value.toLocaleString('pt-BR', {
       day: '2-digit',
@@ -76,6 +74,7 @@ export const useInvoiceStore = defineStore('invoice', () => {
   })
 
   function startClock() {
+    if (timer) return
     timer = setInterval(() => {
       now.value = new Date()
     }, 1000)
@@ -85,13 +84,9 @@ export const useInvoiceStore = defineStore('invoice', () => {
     clearInterval(timer)
   }
 
- // Método para atualizar a data
- function updateDateFromInput(dateStr) {
-  // Convertendo a string do input para Date
-  now.value = new Date(dateStr)
-}
-
-
+  function updateDateFromInput(dateStr) {
+    now.value = new Date(dateStr)
+  }
 
   function addItem() {
     invoiceData.items.push({ name: '', description: '', price: 0, quantity: 1, total: 0 })
@@ -123,48 +118,62 @@ export const useInvoiceStore = defineStore('invoice', () => {
     }
   }
 
+  
+
   function downloadPDF() {
-    const datepickers = document.querySelectorAll('.dp__menu') // classe do menu do vue3-datepicker
-    datepickers.forEach(el => el.style.display = 'none') // fecha o menu se estiver aberto
     const element = document.getElementById('receipt')
+    if (!element) {
+      console.warn('Elemento #receipt não encontrado.')
+      return
+    }
+  
+    // Clona o conteúdo para evitar manipular o DOM original
     const clonedElement = element.cloneNode(true)
+  
+    // Remove elementos indesejados do clone (como botões e inputs)
+    const selectorsToRemove = [
+      '.add',
+      '.cut',
+      '#downloadBtn',
+      '#floating-items',
+      'input[type="file"]',
+      '.dp__menu'
+    ]
+    selectorsToRemove.forEach(selector => {
+      clonedElement.querySelectorAll(selector).forEach(el => el.remove())
+    })
 
-    // ⬇️ Criar espaço no final para não colidir com o rodapé
-    clonedElement.style.paddingBottom = '60px'; // ou '5mm' / '20px' etc.
+    clonedElement.querySelectorAll('.print-footer.hidden').forEach(el => {
+      el.classList.remove('hidden')
+    })
+    
 
-    const style = document.createElement('style')
-    style.innerHTML = `
-      .add, .cut, #downloadBtn { display: none !important; }
-      .page-break { page-break-before: always; break-before: page; }
-      .dp__menu { display: none !important; }
-      #floating-items { display: none !important; }
-    `
-    clonedElement.appendChild(style)
-
+    clonedElement.querySelector('.print-footer').display = 'block'
+    // Cria um container invisível para renderizar o clone fora da tela
+    const container = document.createElement('div')
+    container.style.position = 'fixed'
+    container.style.top = '-10000px'
+    container.style.left = '-10000px'
+    container.style.width = '210mm'
+    container.style.padding = '20px'
+    container.appendChild(clonedElement)
+    document.body.appendChild(container)
+  
+    // Geração do PDF com html2pdf
     html2pdf()
-      .set({ 
-        filename: `${invoiceData.client.name}-${invoiceData.invoiceNumber}-${formattedDateTime.value}.pdf` 
+      .set({
+        margin: 0,
+        filename: `${invoiceData.client.name}-${invoiceData.invoiceNumber}-${formattedDateTime.value}.pdf`,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
       })
       .from(clonedElement)
-      .toPdf()
-      .get('pdf')
-      .then((pdf) => {
-        const totalPages = pdf.internal.getNumberOfPages()
-        for (let i = 1; i <= totalPages; i++) {
-          pdf.setPage(i)
-          pdf.setFontSize(10)
-          pdf.text(`${i} / ${totalPages}`, 10, pdf.internal.pageSize.getHeight() - 10)
-          pdf.text(`Processado por computador ${formattedDateTime.value}` + " | @eFacturas", 55, pdf.internal.pageSize.getHeight() - 10)
-
-          if (i > 1) {
-            pdf.internal.pageSize.height += 10
-          }
-        }
-      })
       .save()
+      .finally(() => {
+        document.body.removeChild(container)
+      })
   }
-
-
   
   function downloadImage() {
     const invoiceElement = document.getElementById('receipt')
@@ -174,83 +183,66 @@ export const useInvoiceStore = defineStore('invoice', () => {
     }
     const height = invoiceElement.scrollHeight
     console.log('Altura do elemento:', height)
-  
-    // ⬇️ Oculta temporariamente os elementos indesejados
+
     const elementsToHide = [
       ...document.querySelectorAll('.add, .cut, #downloadBtn, .dp__menu, .floating')
     ]
-  
+
     if (height > 2000) {
       alert("O documento é muito longo para ser exportado como imagem. Por favor, use a opção PDF.")
       return
     }
     elementsToHide.forEach(el => el.style.display = 'none')
-  
-    // ⬇️ Cria um elemento temporário de rodapé
-    const footer = document.createElement('div')
-    footer.innerText = `Processado por computador ${formattedDateTime.value} | @eFacturas`
-    footer.style.textAlign = 'center'
-    footer.style.fontSize = '12px'
-    footer.style.marginTop = '40px'
-    footer.style.color = '#666'
-    invoiceElement.appendChild(footer)
-  
-    // ⬇️ Gera a imagem
+
+    const footers = invoiceElement.querySelectorAll('.print-footer')
+    footers.forEach(el => {
+      el.classList.remove('hidden')
+      el.style.display = 'block'
+    })
+
     html2canvas(invoiceElement, {
       scale: 2,
       useCORS: true
     }).then(canvas => {
-      
-      // console.log('Canvas height 1:', height)
-      // console.log('Canvas height:', canvas.height)
       const link = document.createElement('a')
       link.download = `${invoiceData.client.name}-${invoiceData.invoiceNumber}-${formattedDateTime.value}.png`
       link.href = canvas.toDataURL('image/png')
       link.click()
-  
-      // ⬇️ Restaura tudo
+
       elementsToHide.forEach(el => el.style.display = '')
-      invoiceElement.removeChild(footer)
+      footers.forEach(el => {
+        el.style.display = 'none'
+        el.classList.add('hidden')
+      })
     }).catch(err => {
       console.error('Erro ao gerar imagem:', err)
       elementsToHide.forEach(el => el.style.display = '')
-      if (footer.parentNode) invoiceElement.removeChild(footer)
+      footers.forEach(el => {
+        el.style.display = 'none'
+        el.classList.add('hidden')
+      })
+
     })
   }
-  
-  
-
-
 
   function downloadExcel() {
     console.log('📥 Baixando Excel...')
-
-    // ⬇️ Obtém o DOM da seção da fatura
     const invoiceElement = document.getElementById('receipt')
     if (!invoiceElement) {
       console.warn('Elemento #invoice não encontrado.')
       return
     }
-
-    // ⬇️ Tenta localizar uma <table> dentro do invoice (recomendado)
     const table = invoiceElement.querySelector('table')
     if (!table) {
       console.warn('Nenhuma tabela encontrada dentro de #invoice.')
       return
     }
-
-    // ⬇️ Converte a tabela DOM em planilha
     const workbook = XLSX.utils.table_to_book(table, { sheet: 'Fatura' })
-
-    // ⬇️ Define nome do ficheiro
     const filename = `${invoiceData.client.name}-${invoiceData.invoiceNumber}-${formattedDateTime.value}.xlsx`
-
-    // ⬇️ Gera e salva
     const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' })
     const blob = new Blob([excelBuffer], { type: 'application/octet-stream' })
     saveAs(blob, filename)
   }
-
 
   return {
     now,
