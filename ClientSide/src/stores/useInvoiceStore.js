@@ -182,14 +182,13 @@ export const useInvoiceStore = defineStore('invoice', () => {
       return
     }
     const height = invoiceElement.scrollHeight
-    console.log('Altura do elemento:', height)
 
     const elementsToHide = [
       ...document.querySelectorAll('.add, .cut, #downloadBtn, .dp__menu, .floating')
     ]
 
-    if (height > 2000) {
-      alert("O documento é muito longo para ser exportado como imagem. Por favor, use a opção PDF.")
+    if (height > 1200) {
+      alert("O documento é muito longo para ser exportado como imagem. Por favor, use a opção PDF.: "+height)
       return
     }
     elementsToHide.forEach(el => el.style.display = 'none')
@@ -226,7 +225,6 @@ export const useInvoiceStore = defineStore('invoice', () => {
   }
 
   function downloadExcel() {
-    console.log('📥 Baixando Excel...')
     const invoiceElement = document.getElementById('receipt')
     if (!invoiceElement) {
       console.warn('Elemento #invoice não encontrado.')

@@ -277,7 +277,7 @@
 
     article address { float: left; }
     article address p{ padding: .2em 0;font-size: 90%; }
-    article address #client{ font-size: 100%; font-weight: normal; font-weight: 600;}
+    article address #client{ font-size: 95%; font-weight: normal; font-weight: 600;}
 
     /* table meta & balance */
 
