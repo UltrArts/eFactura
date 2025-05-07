@@ -18,7 +18,14 @@
 
  /* page */
 
- html { font: 16px/1 'Open Sans', sans-serif; overflow: auto; padding: 0.5in; }
+ html { font: 16px/1 'Open Sans', sans-serif; overflow: auto; padding: 2%; }
  html { background: #999; cursor: default; }
+
+ @media screen and(max-width: 800px){
+	html{
+		margin: 0;
+	}
+	
+ }
 
 

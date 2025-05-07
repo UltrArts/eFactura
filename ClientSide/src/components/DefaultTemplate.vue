@@ -1,62 +1,53 @@
 <template>
-  <div class="body a4-page">
-    <header>
-      <h1>COTAÇÃO</h1>
-      <address>
+  <div class="body a4-page mobile">
+    <header class="mob-header">
+      <h1 class="header-1">COTAÇÃO</h1>
+      <address class="header-2">
         <p contenteditable>{{ invoiceData.company.name }}</p>
         <p contenteditable>{{ invoiceData.company.address }}</p>
         <p contenteditable>{{ invoiceData.company.phone }}</p>
         <p contenteditable>{{ invoiceData.company.website }}</p>
       </address>
-      <span>
+      <span class="header-3">
         <img :src="invoiceData.logo" style="max-width: 100px; margin-right: 50px;" />
         <input type="file" accept="image/*" @change="uploadLogo" />
       </span>
     </header>
     <article >
-      <address>
-        <span id="client">
-          DADOS DO CLIENTE
-        </span>
-        <p contenteditable>{{ invoiceData.client.name }}</p>
-        <p contenteditable>{{ invoiceData.client.phone }}</p>
-        <p contenteditable>{{ invoiceData.client.address }}</p>
-      </address>
-      <table class="meta">
-        <tr>
-          <th>Número #</th>
-          <td contenteditable>{{ invoiceData.invoiceNumber }}</td>
-        </tr>
-        <tr>
-          <th>Data</th>
-          <!-- <td contenteditable>{{ formattedDate }}</td> -->
-          <!-- <td @click="triggerDatePicker" style="cursor: pointer; position: relative;">
-            <span>{{ formattedDate }}</span>
-            <input
-              ref="hiddenDate"
-              type="date"
-              @input="onDateSelected"
-              style="position: absolute; left: -9999px; width: 0; height: 0; opacity: 0;"
-            />
-          </td> -->
+      <div class="mob-cli">
+        <address class="mob-cli-data">
+          <span id="client">
+            DADOS DO CLIENTE
+          </span>
+          <p contenteditable>{{ invoiceData.client.name }}</p>
+          <p contenteditable>{{ invoiceData.client.phone }}</p>
+          <p contenteditable>{{ invoiceData.client.address }}</p>
+        </address>
+        <table class="meta mob-cli-details">
+          <tr>
+            <th>Número #</th>
+            <td contenteditable>{{ invoiceData.invoiceNumber }}</td>
+          </tr>
+          <tr>
+            <th>Data</th>
+            <td class="date_picker" style="cursor: pointer; position: relative;">
+              <Datepicker id="date_picker"
+              style="cursor: pointer;"
+                :model-value="now"
+                @update:model-value="handleDateChange"
+                :format="(date) => formattedDate"
+                position="left"
+                :locale="pt"
+              />
+            </td>
 
-          <td class="date_picker" style="cursor: pointer; position: relative;">
-            <Datepicker id="date_picker"
-             style="cursor: pointer;"
-              :model-value="now"
-              @update:model-value="handleDateChange"
-              :format="(date) => formattedDate"
-              position="center"
-              :locale="pt"
-            />
-          </td>
-
-        </tr>
-        <tr>
-          <th>Saldo</th>
-          <td><span>${{ invoiceData.currency }} </span> <span>{{ balance}}</span></td>
-        </tr>
-      </table>
+          </tr>
+          <tr>
+            <th>Saldo</th>
+            <td><span>${{ invoiceData.currency }} </span> <span>{{ balance}}</span></td>
+          </tr>
+        </table>
+      </div>
       <table class="inventory" >
         <thead>
           <tr>
@@ -92,10 +83,10 @@
         </tbody>
       </table>
       <a @click="addItem" class="add">+</a>
-      <table class="balance">
+      <table class="balance mob-total">
         <tr>
           <th>Total</th>
-          <td><span>${{ invoiceData.currency }} </span> {{ total }}</td>
+          <td> <b><span>${{ invoiceData.currency }} </span> {{ total }}</b></td>
         </tr>
         <tr>
           <th>Valor Pago</th>
@@ -231,7 +222,7 @@
     }
 
     .body { background: var(--ui-background); border-radius: 1px; box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5); }
-    .body { box-sizing: border-box; height: auto; margin: 0 auto; overflow: visible; padding: 0.3in 0.5in; width: 8.5in; min-height: 100vh}
+    .body { box-sizing: border-box; height: auto; margin: 0 auto; overflow: visible; padding: 0.3in 0.5in; width: 8.5in; min-height: 100vh; border-radius: 5px;}
 
 
     span[contenteditable] { display: inline-block; }
@@ -369,6 +360,7 @@
       width: 100%;
       text-align: center;
       font-size: 0.75rem;
+      font-family: "Roboto Mono", monospace;
       color: inherit;
       border-top: 1px dashed currentColor;
       padding-top: 4px;
@@ -380,11 +372,56 @@
       display: none;
     }
 
+    @media screen and (max-width: 700px) {
+      .mobile{
+        width: auto;
+         padding: 0.1in 0.1in; 
+         border-radius: 5px;
+      }
 
-/* 
-    footer small{
-      margin-top: -10em;
-    } */
+      .mob-header{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        
+      }
+
+      .mob-header .header-1{
+        flex: 100%;
+      }
+      .mob-header .header-2{
+        flex: 50%;
+      }
+      .mob-header .header-3{
+        flex: 30%;
+        align-itself: center
+      }
+
+      .mob-cli{
+        display: flex;
+        flex-flow: row wrap;
+      }
+
+      .mob-cli-data, .mob-cli-details{
+        flex: 50%;
+        min-width: 180px;
+      }
+
+      .mob-total{
+        min-width: 190px;
+      }
+    }
+
+    @media screen and(max-width: 600px){
+       /* .mobile{
+        width: auto;
+         padding: 0.1in 0.1in; 
+         border-radius: 5px;
+      } */
+    }
+
+
 
 
     @media print {
