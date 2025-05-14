@@ -6,19 +6,19 @@
             <div class="mainop">
                 <font-awesome-icon icon="cog" size="3x"  id="addIcon" class="material-icons minifabIcon" />
             </div>
-            <div id="forms" class="minifab op5" >
-                <font-awesome-icon icon="paint-brush" size="2x"  class="minifabIcon"  @click="toggleTheme" />
+            <div id="forms" class="minifab op5"  role="button"  >
+                <font-awesome-icon icon="palette" size="2x"   class="minifabIcon"  @click="toggleTheme" />
             </div>
-            <div id="drawings" class="minifab op4">
-                <font-awesome-icon icon="trash" size="2x"  class="minifabIcon" style="color: white" />
+            <div id="drawings" class="minifab op4"  role="button" >
+                <font-awesome-icon icon="rotate" size="2x"  class="minifabIcon" style="color: white" @click="setIsInvoice"/>
             </div>
-            <div id="slides" class="minifab op3">
-                <font-awesome-icon icon="plus" size="2x"  class="minifabIcon" style="color: white" />
+            <div id="slides" class="minifab op3"  role="button" >
+                <font-awesome-icon icon="plus" size="2x"  class="minifabIcon" style="color: white"  @click="confirmClearData"/>
             </div>
-            <div id="sheets" class="minifab op2">
+            <div id="sheets" class="minifab op2"  role="button" >
                 <font-awesome-icon icon="image" size="2x"  class="minifabIcon"  @click="downloadImage"/>
             </div>
-            <div id="docs" class="minifab op1">
+            <div id="docs" class="minifab op1"  role="button" >
                 <font-awesome-icon icon="file-pdf" size="2x"  class="minifabIcon"  @click="downloadPDF"/>
             </div>
         </div>
@@ -26,19 +26,38 @@
 </template>
 
 
+
 <script setup>
-    import { useInvoiceStore } from '@/stores/useInvoiceStore'
-    const invoice = useInvoiceStore()
-     const {
-        downloadPDF,
-        downloadImage,
-    } = invoice
+import { ref } from 'vue'
+import { useInvoiceStore } from '@/stores/useInvoiceStore'
+import { useThemeStore } from '@/stores/useThemeStore'
+import { useAlert } from '@/utils/useAlert'
 
-    
-  function toggleTheme() {
-    theme.toggleTheme()
+const isOpen = ref(false)
+
+const invoice = useInvoiceStore()
+const theme = useThemeStore()
+const { confirm, toast } = useAlert()
+
+
+const { downloadPDF, downloadImage, clearInvoiceData, setIsInvoice } = invoice
+
+function toggleTheme() {
+  theme.toggleTheme()
+}
+
+async function confirmClearData() {
+  const result = await confirm({
+    title: 'Tem certeza que deseja criar uma nova fatura?',
+    text: 'Todos os dados atuais serão removidos.',
+    icon: 'warning'
+  })
+
+  if (result.isConfirmed) {
+    clearInvoiceData()
+    toast({ title: 'Dados da fatura limpos com sucesso!', icon: 'success' })
   }
-
+}
 </script>
 
 
@@ -60,6 +79,7 @@
 
     .fab:hover {
     height: 344px;
+    /* max-height: auto; */
     }
 
     .fab:hover .mainop {
@@ -70,7 +90,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        /* cursor: pointer; */
+        cursor: pointer;
 
 
         margin: auto;
@@ -96,10 +116,8 @@
         z-index: 9998; /* Valor alto para sobrepor tudo */
     }
 
-    .mainop i {
-        margin-top: 16px;
-        font-size: 32px;
-        color: #fff;
+    .mainop:hover {
+        /* scale: 1.1; */
     }
 
     .minifab {
@@ -118,17 +136,18 @@
         background-color: blue;
         transition: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-        /* cursor: pointer; */
+        cursor: pointer;
 
     }
 
     .minifab:hover {
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        scale: 1.1;
     }
 
     .minifabIcon {
         color: white !important;
-        padding: 5em;
+        
     }
 
     .op1 {

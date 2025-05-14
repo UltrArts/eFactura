@@ -6,12 +6,11 @@ import Datepicker from 'vue3-datepicker'
 import * as XLSX from 'xlsx'
 import { saveAs } from 'file-saver'
 import html2canvas from 'html2canvas'
+import Swal from 'sweetalert2'
 
-export const useInvoiceStore = defineStore('invoice', () => {
-  const now = ref(new Date())
-  let timer = null
 
-  const invoiceData = reactive({
+function initialInvoiceData() {
+  return {
     company: {
       name: 'UltrArts',
       address: 'Maputo, Mz.',
@@ -23,22 +22,23 @@ export const useInvoiceStore = defineStore('invoice', () => {
       phone: '123456789',
       address: 'Rua 123'
     },
-    invoiceNumber: '101138',
+    invoiceNumber: '',
     date: '',
-    items: [
-      {
-        name: 'Front End Consultation',
-        description: 'Experience Review',
-        price: 0,
-        quantity: 0,
-        total: 0
-      }
-    ],
+    items: [],
     paid: 0,
     notes: 'Obrigado por comprar connosco. Volte sempre.',
     currency: 'MZN',
-    logo: svgLogo
-  })
+    logo: svgLogo,
+    isInvoice: true
+  }
+}
+
+
+export const useInvoiceStore = defineStore('invoice', () => {
+  const now = ref(new Date())
+  let timer = null
+
+  const invoiceData = reactive(initialInvoiceData())
 
   const total = computed(() =>
     invoiceData.items.reduce((sum, item) => sum + item.total, 0)
@@ -118,12 +118,28 @@ export const useInvoiceStore = defineStore('invoice', () => {
     }
   }
 
-  
+  function clearInvoiceData() {
+    Object.assign(invoiceData, initialInvoiceData())
+  }
 
+  function setIsInvoice(){
+    invoiceData.isInvoice = !invoiceData.isInvoice
+  }
+  
   function downloadPDF() {
     const element = document.getElementById('receipt')
     if (!element) {
       console.warn('Elemento #receipt não encontrado.')
+      return
+    }
+
+    if(invoiceData.items.length === 0) {
+      Swal.fire('Falha ao Exportar!', 'Adicione pelo menos um item para poder exportar!', 'warning')
+      return
+    }
+
+    if(invoiceData.company.length === 0){
+      Swal.fire('Falha ao Exportar!', 'Adicione os dados da empresa para poder exportar!', 'warning')
       return
     }
   
@@ -137,7 +153,8 @@ export const useInvoiceStore = defineStore('invoice', () => {
       '#downloadBtn',
       '#floating-items',
       'input[type="file"]',
-      '.dp__menu'
+      '.dp__menu',
+      '.sideBtn'
     ]
     selectorsToRemove.forEach(selector => {
       clonedElement.querySelectorAll(selector).forEach(el => el.remove())
@@ -181,10 +198,19 @@ export const useInvoiceStore = defineStore('invoice', () => {
       console.warn('Elemento #receipt não encontrado.')
       return
     }
+    if(invoiceData.items.length === 0) {
+      Swal.fire('Falha ao Exportar!', 'Adicione pelo menos um item para poder exportar!', 'warning')
+      return
+    }
+
+    if(invoiceData.company.length === 0){
+      Swal.fire('Falha ao Exportar!', 'Adicione os dados da empresa para poder exportar!', 'warning')
+      return
+    }
     const height = invoiceElement.scrollHeight
 
     const elementsToHide = [
-      ...document.querySelectorAll('.add, .cut, #downloadBtn, .dp__menu, .floating')
+      ...document.querySelectorAll('.add, .cut, #downloadBtn, .dp__menu, .floating, .sideBtn')
     ]
 
     if (height > 1200) {
@@ -255,11 +281,13 @@ export const useInvoiceStore = defineStore('invoice', () => {
     startClock,
     stopClock,
     addItem,
+    clearInvoiceData,
     removeItem,
     updateItemTotal,
     uploadLogo,
     downloadPDF,
     downloadExcel,
-    downloadImage
+    downloadImage,
+    setIsInvoice
   }
 })

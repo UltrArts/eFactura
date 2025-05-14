@@ -1,7 +1,11 @@
 <template>
   <div class="body a4-page mobile">
+  <sideBtn/>
     <header class="mob-header">
-      <h1 class="header-1">COTAÇÃO</h1>
+      <h1 class="header-1"> 
+        {{ invoiceData.isInvoice ? 'FACTURA' : 'COTAÇÃO' }}
+      </h1>
+      
       <address class="header-2">
         <p contenteditable>{{ invoiceData.company.name }}</p>
         <p contenteditable>{{ invoiceData.company.address }}</p>
@@ -42,7 +46,7 @@
             </td>
 
           </tr>
-          <tr>
+          <tr v-show="invoiceData.isInvoice">
             <th>Saldo</th>
             <td><span>${{ invoiceData.currency }} </span> <span>{{ balance}}</span></td>
           </tr>
@@ -88,14 +92,14 @@
           <th>Total</th>
           <td> <b><span>${{ invoiceData.currency }} </span> {{ total }}</b></td>
         </tr>
-        <tr>
+        <tr  v-show="invoiceData.isInvoice">
           <th>Valor Pago</th>
           <td>
             <span>${{ invoiceData.currency }} </span>  
             <span contenteditable  @input="updatePaidAmount($event)"></span>
           </td>
         </tr>
-        <tr>
+        <tr  v-show="invoiceData.isInvoice">
           <th>Remanescente</th>
           <td><span>${{ invoiceData.currency }} </span> {{ change }}</td>
         </tr>
@@ -107,12 +111,12 @@
         <p contenteditable>{{ invoiceData.notes }}</p>
       </div>
     </aside>
-    <div id="floating-items">
+    <!-- <div id="floating-items">
       <button class="floating" @click="downloadPDF" id="downloadBtn">Baixar PDF</button>
       <button class="floating" @click="downloadExcel">Baixar Excel</button>
       <button class="floating" @click="downloadImage">Baixar Imagem</button>
       <button class="floating" @click="toggleTheme" id="themesBtn">Mudar Tema</button>
-    </div>
+    </div> -->
 
     <footer  class="print-footer hidden">
       <small>Processado por computador. {{formattedDateTime}} | @eFacturas</small>
@@ -130,7 +134,7 @@
   import pt from 'date-fns/locale/pt'
   import pt_br from 'date-fns/locale/pt-BR'
   import { storeToRefs } from 'pinia'
-  import expandBtn from './include/expandBtn.vue'
+  import sideBtn from './include/sideBtn.vue'
 
 
 
@@ -161,6 +165,8 @@
     updateTotal,
     startClock,
     stopClock,
+    clearInvoiceData,
+    setIsInvoice
   } = invoice
 
     
@@ -208,7 +214,7 @@
         /* background: #DEF; */
         /* box-shadow: 0 0 1em 0.5em #DEF;  */
         background: var(--ui-secondary);
-        color: var(--ui-secondary-text) !important;
+        color: var(--ui-secondary-text) ;
         box-shadow: 0 0 1em 0.5em  var(--ui-secondary); 
     }
     *{
@@ -313,6 +319,26 @@
         text-align: center;
         width: 0.6em;
     }
+    .toogle-title{
+         border-width: 5px;
+        display: block;
+        font-size: .8rem;
+        padding: 0.25em 0.5em;	
+        float: left;
+        text-align: center;
+        width: 0.6em;
+         background: #9AF;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        background-image: -moz-linear-gradient(#00ADEE 5%, #0078A5 100%);
+        background-image: -webkit-linear-gradient(#00ADEE 5%, #0078A5 100%);
+        border-radius: 0.5em;
+        border-color: #0076A3;
+        color: #FFF;
+        cursor: pointer;
+        font-weight: bold;
+        text-shadow: 0 -1px 2px rgba(0,0,0,0.333);
+        /* position: absolute; top: 0; left: -1.5em; */
+    }
 
     .add, .cut
     {
@@ -328,7 +354,7 @@
         text-shadow: 0 -1px 2px rgba(0,0,0,0.333);
     }
 
-    .add { margin: -2.5em 0 0; }
+       .add { margin: -2.5em 0 0; }
 
     .add:hover { background: #00ADEE; }
 
@@ -343,18 +369,6 @@
         right: 35.8%;
     }
 
-    /* footer {
-      background: red;
-      font-family: "Roboto Mono", monospace;
-      font-optical-sizing: auto;
-      font-size: 80%;
-      font-style: normal;
-      font-weight: 300;
-      text-align: center;
-      position: relative;
-      width: 100%;
-      margin-top: 2em;
-    } */
 
     .print-footer {
       width: 100%;
@@ -395,7 +409,7 @@
       }
       .mob-header .header-3{
         flex: 30%;
-        align-itself: center
+        /* align-itself: center */
       }
 
       .mob-cli{

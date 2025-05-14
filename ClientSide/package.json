@@ -11,12 +11,18 @@
     "backend": "json-server --watch src/assets/js/db.json --port 3001"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+    "@fortawesome/free-regular-svg-icons": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/vue-fontawesome": "^3.0.8",
     "axios": "^1.8.4",
     "bootstrap": "^4.6.2",
     "file-saver": "^2.0.5",
     "html2canvas": "^1.4.1",
     "html2pdf.js": "^0.10.3",
     "pinia": "^3.0.1",
+    "sweetalert2": "^11.21.0",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0",
     "vue3-datepicker": "^0.4.0",
